@@ -1,0 +1,32 @@
+{
+  "name": "threaded",
+  "version": "0.0.1",
+  "description": "React threaded discussion",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "nodemon": "^1.10.2",
+    "pg": "^6.1.0",
+    "sequelize": "^3.24.3",
+    "sequelize-hierarchy": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "mocha": "^3.0.2"
+  },
+  "scripts": {
+    "test": "mocha tests/server/*.spec.js",
+    "start": "nodemon --watch server server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billramsey/threaded.git"
+  },
+  "author": "Bill Ramsey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billramsey/threaded/issues"
+  },
+  "homepage": "https://github.com/billramsey/threaded#readme"
+}
