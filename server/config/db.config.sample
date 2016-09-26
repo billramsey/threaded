@@ -1,1 +1,26 @@
 //db.config.sample
+var Sequelize = require('Sequelize');
+
+
+
+var database = 'threaded';
+var username = '';
+var password = '';
+var host = 'localhost';
+
+
+
+var sequelize = new Sequelize(
+database, 
+username, 
+password, {
+  host: host,
+  dialect: 'postgres',
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  },
+});
+
+module.exports = sequelize;

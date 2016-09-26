@@ -1,7 +1,7 @@
 // entries.js
 
 var Entry = require('../database/Entry.js');
-console.log('e',Entry);
+var messages = require('../messages/messages.js');
 module.exports.getFolderItemsWeb = function(req, res, next) {
 
 };
@@ -36,8 +36,25 @@ module.exports.getFolderItems = function(req, res, next) {
 //Add Entry
 module.exports.addEntry = function(title, description, userId, folderId) {
   return new Promise((resolve, reject) => {
+    
+    if (userId === null || userId === '') {
+      reject(messages.noUserId);
+    }
+    if (folderId === null || folderId === '') {
+      reject(messages.noFolderId);
+    }
 
-    var e = Entry.create({title: title, description: description, userId: userId, folderId: folderId})
+//parentFolder: folderId
+    // .then((create) => {
+    //   return create.setFolder(folderId);
+    // })
+    Entry.create({
+      title: title, 
+      description: description, 
+      creator: userId, 
+      modifier: userId,
+      parentFolder: folderId 
+    })
     .then((created) => resolve(created))
     .catch(reject);
 
