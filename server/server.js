@@ -11,6 +11,8 @@ require('./routes/routes.js')(app, express);
 var db = require('./database/threadeddb.js');
 
 
-app.listen(8080, function () {
-  console.log('Server Started');
+
+
+app.listen(3001, function () {
+  console.log('Server Started on port 3001');
 });

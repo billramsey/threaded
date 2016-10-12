@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.14.0",
+    "foreman": "^2.0.0",
     "nodemon": "^1.10.2",
     "pg": "^6.1.0",
     "sequelize": "^3.24.3",
@@ -17,7 +18,8 @@
   },
   "scripts": {
     "test": "mocha tests/server/*.spec.js",
-    "start": "nodemon --watch server server/server.js"
+    "start": "nf start -p 3000",
+    "server": "nodemon --watch server server/server.js"
   },
   "repository": {
     "type": "git",

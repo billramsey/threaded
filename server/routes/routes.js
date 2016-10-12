@@ -15,6 +15,11 @@ module.exports = (app, express) => {
   app.get('/api/getFolderAncestry/::folderId', authentication.isAuthenticated, folder.getFolderAncestryWeb);  
   app.get('/api/getFolderItems/::folderId', authentication.isAuthenticated, folder.getFolderItemsWeb);
 
+  app.get('/api/test', function(req, res, next) {
+    console.log('hi');
+    res.json({test: 'works'});
+  });
+
   //Entries
   app.post('/api/addEntry/::folderId/::parentId', authentication.isAuthenticated, entry.addEntryWeb);
   app.post('/api/deleteEntry/::entryId', authentication.isAuthenticated, entry.deleteEntryWeb);
