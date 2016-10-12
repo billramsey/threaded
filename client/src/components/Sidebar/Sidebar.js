@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Grid, Navbar, Jumbotron, Button, PageHeader, FormGroup, FormControl, NavItem, Nav} from 'react-bootstrap';
+//import { Col, Row, Grid, Navbar, Jumbotron, Button, PageHeader, FormGroup, FormControl, NavItem, Nav} from 'react-bootstrap';
 //import './App.css';
 class Sidebar extends Component {
   constructor(props) {

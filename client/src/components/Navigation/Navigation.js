@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import {Navbar, FormGroup, FormControl, NavItem, Nav} from 'react-bootstrap';
 
 class Navigation extends Component {
-  constructor(props) {
-    super(props);
-  }
-  componentDidMount() {
-  }
   render() {
     return (
     <Navbar inverse fluid fixedTop>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Row, Grid, Navbar, Jumbotron, Button, PageHeader, FormGroup, FormControl, NavItem, Nav} from 'react-bootstrap';
-import Sidebar from "./Sidebar";
-import Entries from "./Entries";
-
+import { Col, Row, Grid} from 'react-bootstrap';
+import Sidebar from "../Sidebar/Sidebar";
+import Entries from "../Entries/Entries";
+import EntryNavBar from "../EntryNavBar/EntryNavBar";
 //import './App.css';
 class Main extends Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class Main extends Component {
         </Col>
         <Col sm={9} md={10} mdOffset={2} smOffset={3} className="main">
           <h2>Forum Name</h2>
+          <EntryNavBar />
           <Entries />
         </Col>
       </Row>
