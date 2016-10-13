@@ -12,15 +12,6 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    fetch(`/api/test`, {
-      accept: 'application/json',
-    }).then((response) => {
-      console.log(response);
-      return response.json().then((data) => {
-        console.log(data);
-        this.setState({resp: data.test})
-      });
-    });
   }
   render() {
     return (

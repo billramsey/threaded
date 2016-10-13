@@ -6,10 +6,7 @@ class Entries extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      entries: [{id:'1', title:'Lorem',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:2},
-                {id:'2', title:'ipsum',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:0},
-                {id:'3', title:'dolor',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:2},
-                {id:'4', title:'sit',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:3}]
+
     }
   }
   render() {
@@ -25,7 +22,7 @@ class Entries extends Component {
             </tr>
           </thead>
           <tbody>
-          {this.state.entries.map((entry) => (
+          {this.props.entries.map((entry) => (
             <EntryListing {...entry} key={entry.id}/>
           ))}
           </tbody>

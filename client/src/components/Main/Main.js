@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Grid} from 'react-bootstrap';
 import Sidebar from "../Sidebar/Sidebar";
-import Entries from "../Entries/Entries";
-import EntryNavBar from "../EntryNavBar/EntryNavBar";
+import EntryPanel from "../EntryPanel/EntryPanel"
 //import './App.css';
 class Main extends Component {
   constructor(props) {
@@ -10,6 +9,17 @@ class Main extends Component {
     this.state = {
       resp: 'nothing'
     }
+  }
+  componentDidMount() {
+    fetch(`/api/test`, {
+      accept: 'application/json',
+    }).then((response) => {
+      console.log(response);
+      return response.json().then((data) => {
+        console.log(data);
+        this.setState({resp: data.test})
+      });
+    });
   }
   render() {
     return (
@@ -19,9 +29,7 @@ class Main extends Component {
           <Sidebar />
         </Col>
         <Col sm={9} md={10} mdOffset={2} smOffset={3} className="main">
-          <h2>Forum Name</h2>
-          <EntryNavBar />
-          <Entries />
+          <EntryPanel />
         </Col>
       </Row>
     </Grid>
