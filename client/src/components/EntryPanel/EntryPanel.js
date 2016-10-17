@@ -10,6 +10,9 @@ import EntryNavBar from "../EntryNavBar/EntryNavBar";
 class EntryPanel extends Component {
   constructor(props) {
     super(props);
+
+    const id = this.props.params.folderId
+    console.log(id);
     this.state = {
       currentFolder: 1,
       currentFolderTitle: 'Forum Name',
@@ -17,25 +20,34 @@ class EntryPanel extends Component {
           {id:'2', title:'ipsum',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:0},
           {id:'3', title:'dolor',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:2},
           {id:'4', title:'sit',modifiedDate:'03/24/2016 3:00',creationDate:'3/12/2015 4:56', replyCount:3}],
-      folders: []
+      subfolders: []
     }
   }
+  componentWillReceiveProps(nextProps) {
+    //Check for folder change.
+    if (this.props.params.folderId !== nextProps.params.folderId) {
+      this.loadFolders(nextProps.params.folderId);
+    }
+  }
+  loadFolders(folderId) {
+    fetch(`/api/getFolders/${this.props.params.folderId}`, {
+      accept: 'application/json',
+    }).then((response) => {
+      return response.json().then((folders) => {
+        this.setState({subfolders: folders})
+      });
+    });
+  }
+
+
   componentDidMount() {
-    // fetch(`/api/test`, {
-    //   accept: 'application/json',
-    // }).then((response) => {
-    //   console.log(response);
-    //   return response.json().then((data) => {
-    //     console.log(data);
-    //     this.setState({resp: data.test})
-    //   });
-    // });
+    this.loadFolders(this.state.folderId);
   }
   render() {
     return (
       <div>
         <h2>{this.state.currentFolderTitle}</h2>
-        <Folders />
+        <Folders subfolders={this.state.subfolders} />
         <EntryNavBar />
         <Entries entries={this.state.entries} />
       </div>
