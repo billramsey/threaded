@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
 import EntryListing from "../EntryListing/EntryListing";
-//import './App.css';
 class Entries extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
   render() {
     return (
       <Table responsive striped>

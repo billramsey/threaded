@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-//import { Col, Row, Grid} from 'react-bootstrap';
 import Entries from "../Entries/Entries";
 import Folders from "../Folders/Folders";
-
 import EntryNavBar from "../EntryNavBar/EntryNavBar";
 
 
@@ -10,9 +8,6 @@ import EntryNavBar from "../EntryNavBar/EntryNavBar";
 class EntryPanel extends Component {
   constructor(props) {
     super(props);
-
-    const id = this.props.params.folderId
-    console.log(id);
     this.state = {
       currentFolder: 1,
       currentFolderTitle: 'Forum Name',
@@ -23,8 +18,8 @@ class EntryPanel extends Component {
       subfolders: []
     }
   }
+  //Check for folder change.
   componentWillReceiveProps(nextProps) {
-    //Check for folder change.
     if (this.props.params.folderId !== nextProps.params.folderId) {
       this.loadFolders(nextProps.params.folderId);
     }
@@ -38,8 +33,6 @@ class EntryPanel extends Component {
       });
     });
   }
-
-
   componentDidMount() {
     this.loadFolders(this.state.folderId);
   }

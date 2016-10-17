@@ -11,7 +11,6 @@ class Sidebar extends Component {
       topicFolders:[]
     }
   }
-
   loadTopics(folderId) {
     fetch(`/api/getTopics`, {
       accept: 'application/json',
@@ -30,13 +29,19 @@ class Sidebar extends Component {
     return (
       <div>
         <Nav bsClass="nav nav-sidebar">
-          <NavItem eventKey={1} href="/overview">Overview</NavItem>
-          <NavItem eventKey={2} href="/users">Users</NavItem>
-          <NavItem eventKey={3} href="/reports">Reports</NavItem>
+        <LinkContainer key="{1}" to="/overview">
+          <NavItem eventKey={1}>Overview</NavItem>
+        </LinkContainer>
+        <LinkContainer key="{2}" to="/users">
+          <NavItem eventKey={2}>Users</NavItem>
+        </LinkContainer>  
+        <LinkContainer key="{3}" to="/reports">  
+          <NavItem eventKey={3}>Reports</NavItem>
+        </LinkContainer>  
         </Nav>
 
-        <Nav bsClass="nav nav-sidebar" activeKey={1}>
-          <NavItem eventKey={1} >Topics: </NavItem>
+        <Nav bsClass="nav nav-sidebar">
+          <NavItem eventKey={1} disabled>Topics: </NavItem>
           { this.state.topicFolders.map((folder, index) => {
              return (
                 <LinkContainer key={folder.folderId} to={`/folders/${folder.folderId}`}>

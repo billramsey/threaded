@@ -20,8 +20,6 @@ class Folders extends Component {
   constructor(props) {
     super(props);
     this.onToggle = this.onToggle.bind(this);
-    this.state = {
-    }
   }
   onToggle(node, toggled){
       if(this.state.cursor){ this.setState({cursor:{active:false}});}
@@ -29,16 +27,6 @@ class Folders extends Component {
       if(node.children){ node.toggled = toggled; }
       this.setState({ cursor: node });
   }
-  // componentWillReceiveProps(nextProps) {
-  //   console.log('getting different folders', nextProps.subfolders)
-  //   if (this.props.subfolders !== nextProps.subfolders) {
-  //     console.log('folders changed ');
-
-  //   } else {
-  //     console.log('folders did not change')
-  //   }
-  //   //console.log('nextProps', nextProps);
-  // }
   render() {
     return (
       <div>

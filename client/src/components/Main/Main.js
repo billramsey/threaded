@@ -4,16 +4,6 @@ import Sidebar from "../Sidebar/Sidebar";
 //import EntryPanel from "../EntryPanel/EntryPanel"
 //import './App.css';
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      resp: 'nothing'
-    }
-  }
-  componentDidMount() {
-
-  }
-  //          <EntryPanel />
   render() {
     return (
     <Grid fluid>
